@@ -81,7 +81,7 @@ Example distributions: openSUSE, Fedora, CentOS, Mandrake
 Example:
 
 ```console
-sudo rpm -ivh go-hello-psutils-M.m.P-I.x86_64.rpm
+sudo rpm -ivh go-proc-parse-M.m.P-I.x86_64.rpm
 ```
 
 ##### RPM Update
@@ -89,7 +89,7 @@ sudo rpm -ivh go-hello-psutils-M.m.P-I.x86_64.rpm
 Example: 
 
 ```console
-sudo rpm -Uvh go-hello-psutils-M.m.P-I.x86_64.rpm
+sudo rpm -Uvh go-proc-parse-M.m.P-I.x86_64.rpm
 ```
 
 #### Debian
@@ -101,7 +101,7 @@ Example distributions: Ubuntu
 Example:
 
 ```console
-sudo dpkg -i go-hello-psutils_M.m.P-I_amd64.deb
+sudo dpkg -i go-proc-parse_M.m.P-I_amd64.deb
 ```
 
 ### Cleanup
