@@ -33,7 +33,7 @@ export REPOSITORY_DIR="${PROJECT_DIR}/go-proc-parse"
 ```console
 mkdir -p ${PROJECT_DIR}
 cd ${PROJECT_DIR}
-git clone git@github.com:docktermj/go-hello-psutils.git
+git clone git@github.com:docktermj/go-proc-parse.git
 ```
 
 #### Download dependencies

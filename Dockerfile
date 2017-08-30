@@ -59,7 +59,9 @@ ENV PATH="${PATH}:/usr/local/go/bin:${GOPATH}/bin"
 ENV GO_PACKAGE="github.com/docktermj/${PROGRAM_NAME}"
 
 # Install dependencies.
-RUN	go get github.com/docktermj/go-proc-parse/proc/net/snmp
+RUN	go get github.com/docktermj/go-proc-parse/proc/meminfo && \
+    go get github.com/docktermj/go-proc-parse/proc/net/dev && \
+    go get github.com/docktermj/go-proc-parse/proc/net/snmp
 
 # Copy local files from the Git repository.
 COPY . ${GOPATH}/src/${GO_PACKAGE}

@@ -68,6 +68,7 @@ docker-run:
 dependencies:
 	go get -u github.com/jstemmer/go-junit-report
 	go get -u github.com/docktermj/go-proc-parse/proc/meminfo
+	go get -u github.com/docktermj/go-proc-parse/proc/net/dev
 	go get -u github.com/docktermj/go-proc-parse/proc/net/snmp
 	
 
