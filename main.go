@@ -21,8 +21,8 @@ func displayBanner(title string) {
 }
 
 func demoProcPidStat() {
-	pid := int64(5)
-	displayBanner("/proc/" + strconv.FormatInt(pid, 10) + "/stat")
+	pid := int(5)
+	displayBanner("/proc/" + strconv.Itoa(pid) + "/stat")
 	contents, _ := stat.Get(pid)
 	contentsAsJson, _ := stat.GetAsJson(pid)
 	contentsAsMap, _ := stat.GetAsMap(pid)

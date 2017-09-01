@@ -9,6 +9,7 @@ import (
 )
 
 // References:
+// - Linux command: man 5 proc
 // - http://man7.org/linux/man-pages/man5/proc.5.html  "/proc/[pid]/stat"
 type Stat struct {
 	Pid                   int    `json:"pid"`
@@ -66,10 +67,10 @@ type Stat struct {
 }
 
 // Allow filename to be specified by OS Environment variable: PROC_PID_STAT
-func getFilename(pid int64) string {
+func getFilename(pid int) string {
 	result := os.Getenv("PROC_PID_STAT")
 	if result == "" {
-		pidString := strconv.FormatInt(pid, 10)
+		pidString := strconv.Itoa(pid)
 		result = "/proc/" + pidString + "/stat"
 	}
 	return result
@@ -107,7 +108,7 @@ func asUint64(value string) uint64 {
 	return result
 }
 
-func Get(pid int64) (Stat, error) {
+func Get(pid int) (Stat, error) {
 
 	result := Stat{}
 
@@ -182,7 +183,7 @@ func Get(pid int64) (Stat, error) {
 	return result, nil
 }
 
-func GetAsJson(pid int64) ([]byte, error) {
+func GetAsJson(pid int) ([]byte, error) {
 	content, err := Get(pid)
 	if err != nil {
 		return []byte{}, err
@@ -195,7 +196,7 @@ func GetAsJson(pid int64) ([]byte, error) {
 // Example:
 //     myMeminfo := meminfo.Get()
 //     x := myMeminfo["MemTotal"]
-func GetAsMap(pid int64) (map[string]interface{}, error) {
+func GetAsMap(pid int) (map[string]interface{}, error) {
 
 	result := make(map[string]interface{})
 	stat, err := Get(pid)
