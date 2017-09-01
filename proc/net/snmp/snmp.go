@@ -2,6 +2,7 @@ package snmp
 
 import (
 	"bufio"
+	"encoding/json"
 	"os"
 	"strconv"
 	"strings"
@@ -16,11 +17,20 @@ func GetFilename() string {
 	return result
 }
 
+func GetAsJson() ([]byte, error) {
+	content, err := GetAsMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	result, _ := json.Marshal(content)
+	return result, nil
+}
+
 // Get values of /proc/net/snmp as a map of maps of uint64.
 // Example:
 //     mySnmp := snmp.Get()
 //     x := mySnmp["Ip"]["InHdrErrors"]
-func Get() (map[string]map[string]uint64, error) {
+func GetAsMap() (map[string]map[string]uint64, error) {
 
 	result := make(map[string]map[string]uint64)
 
